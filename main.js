@@ -5,7 +5,7 @@ var nextGen = Math.floor((humans/2) * birthrate);
 var Born = 0;
 var cursors = 0;
 var resourcecollector = 0;
-var resources = 200;
+var resources = 2000;
 
 function humansClick(number){ 
 	if (resources >= 100){
@@ -32,7 +32,14 @@ function addresourcecol(number){
 		};
 };
 			
-	
+function remresourcecol(number){
+		if (resourcecollector >= number){
+			resourcecollector = resourcecollector - number;
+			humans = humans + number;
+			document.getElementById('resourcecollector').innerHTML = resourcecollector;
+			document.getElementById('humans').innerHTML = humans;
+		};
+};
 
 
 /* function buyCursor(){ 
@@ -57,24 +64,28 @@ window.setInterval(function(){
 var humanspawnchance = (Math.random()* 1);
 nextGen = Math.floor((humans/2) * birthrate);
 resources = resources + resourcecollector;
-	if (humanspawnchance <= birthrate)/* ||(resources >= (nextGen * 100)) */{
-		humans = humans + nextGen;
-		Born = Born + nextGen;
-		//resources = resources - (nextGen * 100);
-		document.getElementById('humans').innerHTML = humans;
-		document.getElementById('Born').innerHTML = Born;
-		//document.getElementById('resources').innerHTML = resources;
-		} else {
-			humans = humans;
-			Born = Born;
+	if (humanspawnchance <= birthrate && resources >= (nextGen * 100)){
+			humans = humans + nextGen;
+			Born = Born + nextGen;
+			resources = resources - (nextGen * 100);
 			document.getElementById('humans').innerHTML = humans;
 			document.getElementById('Born').innerHTML = Born;
+			document.getElementById('resources').innerHTML = resources;
+			} else {
+				humans = humans;
+				Born = Born;
+				resources = resources;
+				document.getElementById('humans').innerHTML = humans;
+				document.getElementById('Born').innerHTML = Born;
+				document.getElementById('resources').innerHTML = resources;
 		}
+	
+
 document.getElementById('pregorate').innerHTML = pregorate;
 document.getElementById('humanspawnchance').innerHTML = humanspawnchance;
 document.getElementById('birthrate').innerHTML = birthrate;
 document.getElementById('nextGen').innerHTML = nextGen;
 pregorate = ((birthrate*100)/100).toLocaleString(undefined,{style: 'percent', minimumFractionDigits:2});
 
-resources = resources + resourcecollector;
+document.getElementById('resources').innerHTML = resources;
 }, 1000);
