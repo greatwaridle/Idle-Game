@@ -3,13 +3,14 @@
 		<link rel="stylesheet" type="text/css" href="interface.css" />
 	</head>
 	<body>
+		humans: <span id="humans">0</span>
+		<br />
 		<button onclick="humansClick(1)">Humans</button>
 		<br />
-		humans: <span id="humans">0</span>
+		Pregnancy Rate: <span id="pregorate">0</span>
 		<br />
 		<button onclick="spawnhumans()">Pregnancy Rate</button>
 		<br />
-		Pregnancy Rate: <span id="pregorate">0</span>
 		<br />
 		Descendants: <span id="Born">0</span>
 		<br />
@@ -18,17 +19,23 @@
 		True BR: <span id="birthrate">0</span>
 		<br />
 		NextGen: <span id="nextGen">0</span>
-		<br />	
-		
-		
-		
-		<button onclick="buyCursor()">Buy Cursor</button>
+		<br />
+		<br />
+		<br />
+		<br />
+<!-- 	<button onclick="buyCursor()">Buy Cursor</button>
 		<br />
 		Cursors: <span id="cursors">0</span>
 		<br />
 		Cursor Cost: <span id="cursorCost">10</span>
+		<br /> -->
+		Resource Collectors: <span id="resourcecollector">0</span>
 		<br />
-		
+		<button onclick="addresourcecol(1)">Add Resource Collector</button>
+		<br />
+		<br />
+		Resources: <span id="resources">0</span>
+		<br />
 
 		
 	
