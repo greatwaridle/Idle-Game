@@ -5,7 +5,7 @@ var nextGen = Math.floor((humans/2) * birthrate);
 var Born = 0;
 var cursors = 0;
 var resourcecollector = 0;
-var resources = 2000;
+var resources = 20000;
 
 function humansClick(number){ 
 	if (resources >= 100){
@@ -16,9 +16,14 @@ function humansClick(number){
 	};
 };
 
-function spawnhumans(){
-	nextGen = Math.floor((humans/2) * birthrate);
-	birthrate = birthrate + 0.01;
+function spawnhumans(number){
+	birthrate = birthrate + number;
+	document.getElementById('pregorate').innerHTML = pregorate;
+
+};
+
+function minushumans(number){
+	birthrate = birthrate - number;
 	document.getElementById('pregorate').innerHTML = pregorate;
 
 };
