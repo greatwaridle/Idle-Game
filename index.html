@@ -5,11 +5,11 @@
 	<body>
 		humans: <span id="humans">0</span>
 		<br />
-		<button onclick="humansClick(1)">Humans</button>
+		<button onclick="humansClick(1)">Humans +1</button> <button onclick="humansClick(10)">Humans +10</button> <button onclick="humansClick(100)">Humans +100</button>
 		<br />
 		Pregnancy Rate: <span id="pregorate">0</span>
 		<br />
-		<button onclick="spawnhumans()">Pregnancy Rate</button>
+		<button onclick="spawnhumans(0.01)">Pregnancy Rate +</button><button onclick="minushumans(0.01)">Pregnancy Rate -</button>
 		<br />
 		<br />
 		Descendants: <span id="Born">0</span>
@@ -31,7 +31,8 @@
 		<br /> -->
 		Resource Collectors: <span id="resourcecollector">0</span>
 		<br />
-		<button onclick="addresourcecol(1)">Add Resource Collector</button><button onclick="remresourcecol(1)">Remove Resource Collector</button>
+		<button onclick="addresourcecol(1)">Resource Collector +1</button><button onclick="addresourcecol(10)">Resource Collector +10</button><button onclick="addresourcecol(100)">Resource Collector +100</button><br />
+				<button onclick="remresourcecol(1)">Resource Collector -1</button><button onclick="remresourcecol(10)">Resource Collector -10</button><button onclick="remresourcecol(100)">Resource Collector -100</button>
 		<br />
 		<br />
 		Resources: <span id="resources">0</span>
