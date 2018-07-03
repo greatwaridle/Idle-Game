@@ -1,15 +1,18 @@
 <html>
 	<head>
 		<link rel="stylesheet" type="text/css" href="interface.css" />
+
 	</head>
 	<body>
+		<header>
 		Humans: <span id="humans">0</span>
 		<br />
-		<button onclick="humansClick(1)">Humans +1</button> <button onclick="humansClick(10)">Humans +10</button> <button onclick="humansClick(100)">Humans +100</button>
+		<button onclick="humansClick(1)">Add +1</button> 
+		<button onclick="maxbuyhum()">Add Max</button><span id="maxbuyhumans">0</span>
+		<button onclick="halfbuyhum()">Add Half</button><span id="halfbuyhumans">0</span>
 		<br />
-		<!-- Create: <input id="addcusthuman" type="number" name="addcusthuman"><input type="submit" onclick="addcusthuman(1)"> -->
-		<button onclick="maxbuyhum()">Max</button><span id="maxbuyhumans">0</span>
-		<button onclick="halfbuyhum()">Half</button><span id="halfbuyhumans">0</span>
+		<button onclick="addcusthuman()">Add</button><input type="number" id="addcusthumannum" placeholder="Custom Number">
+		</header>
 		<br />
 		<br />
 		Pregnancy Rate: <span id="pregorate">0</span>
@@ -34,16 +37,22 @@
 		<br />
 		Cursor Cost: <span id="cursorCost">10</span>
 		<br /> -->
-		Resource Collectors: <span id="resourcecollector">0</span>
-		<br />
-		<button onclick="addresourcecol(1)">Resource Collector +1</button><button onclick="addresourcecol(10)">Resource Collector +10</button><button onclick="addresourcecol(100)">Resource Collector +100</button><br />
-				<button onclick="remresourcecol(1)">Resource Collector -1</button><button onclick="remresourcecol(10)">Resource Collector -10</button><button onclick="remresourcecol(100)">Resource Collector -100</button>
-		<br />
-		<button onclick="maxresourcecol()">Max</button><span id="maxresourcecoll">0</span>
-		<button onclick="halfresourcecol()">Half</button><span id="halfresourcecoll">0</span>
-		<br />
+		
 		Resources: <span id="resources">0</span>
 		<br />
+		Resource Collectors: <span id="resourcecollector">0</span>
+		<br />
+		<button onclick="addresourcecol(1)">Add +1</button>
+		<button onclick="maxresourcecol()">Add Max</button><span id="maxresourcecoll">0</span>
+		<button onclick="halfresourcecol()">Add Half</button><span id="halfresourcecoll">0</span>
+		<br />
+		<button onclick="addcustrescol()">Add</button><input type="number" id="addcustrescoll" placeholder="Custom Number">
+		<br />
+		<br />
+		<button onclick="remresourcecol(1)">Subtract 1</button>
+		<button onclick="remcustrescol()">Subtract</button><input type="number" id="remcustrescoll" placeholder="Custom Number">
+		<br />
+		
 
 		
 	
@@ -59,4 +68,4 @@
 		
 	</body>
 </html>
-a
+
