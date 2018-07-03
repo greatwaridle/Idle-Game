@@ -149,3 +149,4 @@ document.getElementById('halfbuyhumans').innerHTML = halfbuyhumans;
 document.getElementById('halfresourcecoll').innerHTML = halfresourcecoll;
 document.getElementById('maxresourcecoll').innerHTML = maxresourcecoll;
 }, 1000);
+a
