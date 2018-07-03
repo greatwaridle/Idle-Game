@@ -1,0 +1,26 @@
+<html>
+<head>
+ <style>
+  * {
+    box-sizing: border-box;
+}
+
+body {
+    /*font-family: Arial, Helvetica, sans-serif;*/
+}
+
+/* Style the header */
+header {
+    background-color: #EAECEE;
+    padding: 30px;
+    text-align: center;
+    font-size: 35px;
+    color: black;
+}
+
+</style> 
+</head>
+<body>
+
+</body>
+</html>
