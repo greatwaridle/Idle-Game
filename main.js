@@ -5,8 +5,23 @@ var nextGen = Math.floor((humans/2) * birthrate);
 var Born = 0;
 var cursors = 0;
 var resourcecollector = 0;
-var resources = 20000;
+var resources = 20001;
+var addcusthuman = document.createElement('value');
+var maxbuyhumans = 0;
+var halfbuyhumans = 0;
+var maxresourcecoll = 0;
+var halfresourcecoll = 0;
 
+//Buying custom # of Humans
+/* function addcusthuman(number){ 
+	if (resources >= (number * 100)){
+		humans = humans + number;
+		resources = resources - (number * 100);
+		document.getElementById('humans').innerHTML = humans;
+		document.getElementById('resources').innerHTML = resources;
+	};
+}; */
+//Buying 1 Human
 function humansClick(number){ 
 	if (resources >= 100){
 		humans = humans + number;
@@ -15,19 +30,37 @@ function humansClick(number){
 		document.getElementById('resources').innerHTML = resources;
 	};
 };
+//Buying Max number of Humans possible
+function maxbuyhum(number){
+	humans = humans + maxbuyhumans;
+	resources = resources - (maxbuyhumans * 100);
+	document.getElementById('humans').innerHTML = humans;
+	document.getElementById('resources').innerHTML = resources;
+	document.getElementById('maxbuyhumans').innerHTML = maxbuyhumans;
+};	
 
+//Buy Half the number of Humans possible
+function halfbuyhum(number){
+	humans = humans + halfbuyhumans;
+	resources = resources - (halfbuyhumans * 100);
+	document.getElementById('humans').innerHTML = humans;
+	document.getElementById('resources').innerHTML = resources;
+	document.getElementById('halfbuyhumans').innerHTML = halfbuyhumans;
+};	
+
+//Add to BR
 function spawnhumans(number){
 	birthrate = birthrate + number;
 	document.getElementById('pregorate').innerHTML = pregorate;
 
 };
-
+//Minus from BR
 function minushumans(number){
 	birthrate = birthrate - number;
 	document.getElementById('pregorate').innerHTML = pregorate;
 
 };
-
+//Add Human resource collector
 function addresourcecol(number){
 		if (humans >= number){
 			resourcecollector = resourcecollector + number;
@@ -36,7 +69,8 @@ function addresourcecol(number){
 			document.getElementById('humans').innerHTML = humans;
 		};
 };
-			
+
+//Remove Human resource collector			
 function remresourcecol(number){
 		if (resourcecollector >= number){
 			resourcecollector = resourcecollector - number;
@@ -45,7 +79,21 @@ function remresourcecol(number){
 			document.getElementById('humans').innerHTML = humans;
 		};
 };
+//Max number of Resource Collectors possible
+function maxresourcecol(number){
+	resourcecollector = resourcecollector + maxresourcecoll;
+	humans = humans - maxresourcecoll;
+	document.getElementById('humans').innerHTML = humans;
+	document.getElementById('resourcecollector').innerHTML = resourcecollector;
+};	
 
+//Half the number of Resource Collectors possible
+function halfresourcecol(number){
+	resourcecollector = resourcecollector + halfresourcecoll;
+	humans = humans - halfresourcecoll;
+	document.getElementById('humans').innerHTML = humans;
+	document.getElementById('resourcecollector').innerHTML = resourcecollector;
+};	
 
 /* function buyCursor(){ 
 	var cursorCost = Math.floor(10 * Math.pow(1.1,cursors)); //works out the cost of this cursor 
@@ -63,7 +111,7 @@ function remresourcecol(number){
 
 humansClick(nextGen);
 }, 1000); */
-
+//Everything calulated every second
 window.setInterval(function(){
 
 var humanspawnchance = (Math.random()* 1);
@@ -91,6 +139,13 @@ document.getElementById('humanspawnchance').innerHTML = humanspawnchance;
 document.getElementById('birthrate').innerHTML = birthrate;
 document.getElementById('nextGen').innerHTML = nextGen;
 pregorate = ((birthrate*100)/100).toLocaleString(undefined,{style: 'percent', minimumFractionDigits:2});
-
+halfresourcecoll = Math.floor(humans/2);
+maxresourcecoll = humans;
+maxbuyhumans = Math.floor(resources/100);
+halfbuyhumans = Math.floor((resources/100)/2);
 document.getElementById('resources').innerHTML = resources;
+document.getElementById('maxbuyhumans').innerHTML = maxbuyhumans;
+document.getElementById('halfbuyhumans').innerHTML = halfbuyhumans;
+document.getElementById('halfresourcecoll').innerHTML = halfresourcecoll;
+document.getElementById('maxresourcecoll').innerHTML = maxresourcecoll;
 }, 1000);
