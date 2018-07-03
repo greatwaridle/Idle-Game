@@ -6,21 +6,23 @@ var Born = 0;
 var cursors = 0;
 var resourcecollector = 0;
 var resources = 20001;
-var addcusthuman = document.createElement('value');
+var addcusthumannum = document.getElementById("addcusthumannum").value;
 var maxbuyhumans = 0;
 var halfbuyhumans = 0;
 var maxresourcecoll = 0;
 var halfresourcecoll = 0;
+var addcustrescoll = document.getElementById("addcustrescoll").value;
 
 //Buying custom # of Humans
-/* function addcusthuman(number){ 
-	if (resources >= (number * 100)){
-		humans = humans + number;
-		resources = resources - (number * 100);
+function addcusthuman(number){ 
+	addcusthumannum = document.getElementById("addcusthumannum").value;
+	if (resources >= (addcusthumannum * 100)){
+		humans = Math.floor(humans + addcusthumannum);
+		resources = Math.floor(resources - (addcusthumannum * 100));
 		document.getElementById('humans').innerHTML = humans;
 		document.getElementById('resources').innerHTML = resources;
 	};
-}; */
+};
 //Buying 1 Human
 function humansClick(number){ 
 	if (resources >= 100){
@@ -93,7 +95,27 @@ function halfresourcecol(number){
 	humans = humans - halfresourcecoll;
 	document.getElementById('humans').innerHTML = humans;
 	document.getElementById('resourcecollector').innerHTML = resourcecollector;
+};
+
+//Add Custom # of Resource Collectors
+function addcustrescol(){
+	addcustrescoll = document.getElementById("addcustrescoll").value;
+	resourcecollector = Math.floor(resourcecollector + addcustrescoll);
+	humans = Math.floor(humans - addcustrescoll);
+	document.getElementById('humans').innerHTML = humans;
+	document.getElementById('resourcecollector').innerHTML = resourcecollector;
 };	
+
+//Remove Custom # of Resource Collectors
+function remcustrescol(){
+	remcustrescoll = document.getElementById("remcustrescoll").value;
+	resourcecollector = Math.floor(resourcecollector - remcustrescoll);
+	humans = Math.floor(humans + remcustrescoll);
+	document.getElementById('humans').innerHTML = humans;
+	document.getElementById('resourcecollector').innerHTML = resourcecollector;
+};	
+
+
 
 /* function buyCursor(){ 
 	var cursorCost = Math.floor(10 * Math.pow(1.1,cursors)); //works out the cost of this cursor 
@@ -111,6 +133,8 @@ function halfresourcecol(number){
 
 humansClick(nextGen);
 }, 1000); */
+
+
 //Everything calulated every second
 window.setInterval(function(){
 
@@ -149,4 +173,4 @@ document.getElementById('halfbuyhumans').innerHTML = halfbuyhumans;
 document.getElementById('halfresourcecoll').innerHTML = halfresourcecoll;
 document.getElementById('maxresourcecoll').innerHTML = maxresourcecoll;
 }, 1000);
-a
+
