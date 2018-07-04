@@ -5,17 +5,21 @@ var nextGen = Math.floor((humans/2) * birthrate);
 var Born = 0;
 var cursors = 0;
 var resourcecollector = 0;
-var resources = 20001;
+var resources = 200000;
 var addcusthumannum = document.getElementById("addcusthumannum").value;
 var maxbuyhumans = 0;
 var halfbuyhumans = 0;
 var maxresourcecoll = 0;
 var halfresourcecoll = 0;
 var addcustrescoll = document.getElementById("addcustrescoll").value;
+var totalpop = 0;
+
+//Add commas
+//?
 
 //Buying custom # of Humans
 function addcusthuman(number){ 
-	addcusthumannum = document.getElementById("addcusthumannum").value;
+	addcusthumannum = +document.getElementById("addcusthumannum").value;
 	if (resources >= (addcusthumannum * 100)){
 		humans = Math.floor(humans + addcusthumannum);
 		resources = Math.floor(resources - (addcusthumannum * 100));
@@ -99,7 +103,7 @@ function halfresourcecol(number){
 
 //Add Custom # of Resource Collectors
 function addcustrescol(){
-	addcustrescoll = document.getElementById("addcustrescoll").value;
+	addcustrescoll = +document.getElementById("addcustrescoll").value;
 	resourcecollector = Math.floor(resourcecollector + addcustrescoll);
 	humans = Math.floor(humans - addcustrescoll);
 	document.getElementById('humans').innerHTML = humans;
@@ -108,7 +112,7 @@ function addcustrescol(){
 
 //Remove Custom # of Resource Collectors
 function remcustrescol(){
-	remcustrescoll = document.getElementById("remcustrescoll").value;
+	remcustrescoll = +document.getElementById("remcustrescoll").value;
 	resourcecollector = Math.floor(resourcecollector - remcustrescoll);
 	humans = Math.floor(humans + remcustrescoll);
 	document.getElementById('humans').innerHTML = humans;
@@ -133,6 +137,8 @@ function remcustrescol(){
 
 humansClick(nextGen);
 }, 1000); */
+
+
 
 
 //Everything calulated every second
@@ -167,10 +173,12 @@ halfresourcecoll = Math.floor(humans/2);
 maxresourcecoll = humans;
 maxbuyhumans = Math.floor(resources/100);
 halfbuyhumans = Math.floor((resources/100)/2);
+totalpop = Math.floor(humans + resourcecollector);
 document.getElementById('resources').innerHTML = resources;
 document.getElementById('maxbuyhumans').innerHTML = maxbuyhumans;
 document.getElementById('halfbuyhumans').innerHTML = halfbuyhumans;
 document.getElementById('halfresourcecoll').innerHTML = halfresourcecoll;
 document.getElementById('maxresourcecoll').innerHTML = maxresourcecoll;
+document.getElementById('totalpop').innerHTML = totalpop;
 }, 1000);
 
