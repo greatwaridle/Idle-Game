@@ -147,6 +147,9 @@ window.setInterval(function(){
 var humanspawnchance = (Math.random()* 1);
 nextGen = Math.floor((humans/2) * birthrate);
 resources = resources + resourcecollector;
+	if (nextGen <= 1 && humans >=2){
+		nextGen = 1
+	};
 	if (humanspawnchance <= birthrate && resources >= (nextGen * 100)){
 			humans = humans + nextGen;
 			Born = Born + nextGen;
@@ -162,7 +165,7 @@ resources = resources + resourcecollector;
 				document.getElementById('Born').innerHTML = Born;
 				document.getElementById('resources').innerHTML = resources;
 		}
-	
+
 
 document.getElementById('pregorate').innerHTML = pregorate;
 document.getElementById('humanspawnchance').innerHTML = humanspawnchance;
