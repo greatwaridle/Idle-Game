@@ -17,7 +17,35 @@ header {
     font-size: 35px;
     color: black;
 }
-
+/* Header 2 */
+.header2 {
+	text-align: center;
+	font-weight:normal;
+	font-size: 16px;
+}
+.table1 {
+	display: table;
+	width: 33%;
+	border: 1px solid black;
+	position: relative;
+}
+.table2 {
+	display: table;
+	width: 33%;
+	border: 1px solid black;
+	position: relative;
+/* 	left: 405px;
+	top: -155px; */
+	
+}
+.table3	{
+	display: table;
+	width: 33%;
+	border: 1px solid black;
+	position: relative;
+/* 	left: 810px;
+	top: -221px; */
+}
 </style> 
 </head>
 <body>
