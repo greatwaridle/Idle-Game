@@ -7,12 +7,19 @@ var cursors = 0;
 var resourcecollector = 0;
 var resources = 200000;
 var addcusthumannum = document.getElementById("addcusthumannum").value;
+var addcusthumancost = Math.floor(+document.getElementById("addcusthumannum").value * 100);
 var maxbuyhumans = 0;
 var halfbuyhumans = 0;
 var maxresourcecoll = 0;
 var halfresourcecoll = 0;
 var addcustrescoll = document.getElementById("addcustrescoll").value;
 var totalpop = 0;
+var scientist = 0;
+var research = 0;
+var halfscientist = 0;
+var maxscientist = 0;
+var scientistlimit = 10;
+
 
 //Add commas
 //?
@@ -27,6 +34,7 @@ function addcusthuman(number){
 		document.getElementById('resources').innerHTML = resources;
 	};
 };
+
 //Buying 1 Human
 function humansClick(number){ 
 	if (resources >= 100){
@@ -36,22 +44,27 @@ function humansClick(number){
 		document.getElementById('resources').innerHTML = resources;
 	};
 };
+
 //Buying Max number of Humans possible
 function maxbuyhum(number){
-	humans = humans + maxbuyhumans;
-	resources = resources - (maxbuyhumans * 100);
-	document.getElementById('humans').innerHTML = humans;
-	document.getElementById('resources').innerHTML = resources;
-	document.getElementById('maxbuyhumans').innerHTML = maxbuyhumans;
+	if (resources >= (maxbuyhumans * 100)){
+		humans = humans + maxbuyhumans;
+		resources = resources - (maxbuyhumans * 100);
+		document.getElementById('humans').innerHTML = humans;
+		document.getElementById('resources').innerHTML = resources;
+		document.getElementById('maxbuyhumans').innerHTML = maxbuyhumans;
+	};	
 };	
 
 //Buy Half the number of Humans possible
 function halfbuyhum(number){
-	humans = humans + halfbuyhumans;
-	resources = resources - (halfbuyhumans * 100);
-	document.getElementById('humans').innerHTML = humans;
-	document.getElementById('resources').innerHTML = resources;
-	document.getElementById('halfbuyhumans').innerHTML = halfbuyhumans;
+	if (resources >= (halfbuyhumans * 100)){
+		humans = humans + halfbuyhumans;
+		resources = resources - (halfbuyhumans * 100);
+		document.getElementById('humans').innerHTML = humans;
+		document.getElementById('resources').innerHTML = resources;
+		document.getElementById('halfbuyhumans').innerHTML = halfbuyhumans;
+	};
 };	
 
 //Add to BR
@@ -60,12 +73,14 @@ function spawnhumans(number){
 	document.getElementById('pregorate').innerHTML = pregorate;
 
 };
+
 //Minus from BR
 function minushumans(number){
 	birthrate = birthrate - number;
 	document.getElementById('pregorate').innerHTML = pregorate;
 
 };
+
 //Add Human resource collector
 function addresourcecol(number){
 		if (humans >= number){
@@ -85,41 +100,69 @@ function remresourcecol(number){
 			document.getElementById('humans').innerHTML = humans;
 		};
 };
+
 //Max number of Resource Collectors possible
 function maxresourcecol(number){
-	resourcecollector = resourcecollector + maxresourcecoll;
-	humans = humans - maxresourcecoll;
-	document.getElementById('humans').innerHTML = humans;
-	document.getElementById('resourcecollector').innerHTML = resourcecollector;
+	if (humans >= maxresourcecoll){
+		resourcecollector = resourcecollector + maxresourcecoll;
+		humans = humans - maxresourcecoll;
+		document.getElementById('humans').innerHTML = humans;
+		document.getElementById('resourcecollector').innerHTML = resourcecollector;
+	};
 };	
 
 //Half the number of Resource Collectors possible
 function halfresourcecol(number){
-	resourcecollector = resourcecollector + halfresourcecoll;
-	humans = humans - halfresourcecoll;
-	document.getElementById('humans').innerHTML = humans;
-	document.getElementById('resourcecollector').innerHTML = resourcecollector;
+	if (humans >= halfresourcecoll){
+		resourcecollector = resourcecollector + halfresourcecoll;
+		humans = humans - halfresourcecoll;
+		document.getElementById('humans').innerHTML = humans;
+		document.getElementById('resourcecollector').innerHTML = resourcecollector;
+	};
 };
 
 //Add Custom # of Resource Collectors
 function addcustrescol(){
 	addcustrescoll = +document.getElementById("addcustrescoll").value;
-	resourcecollector = Math.floor(resourcecollector + addcustrescoll);
-	humans = Math.floor(humans - addcustrescoll);
-	document.getElementById('humans').innerHTML = humans;
-	document.getElementById('resourcecollector').innerHTML = resourcecollector;
+	if (addcustrescoll <= humans){
+		resourcecollector = Math.floor(resourcecollector + addcustrescoll);
+		humans = Math.floor(humans - addcustrescoll);
+		document.getElementById('humans').innerHTML = humans;
+		document.getElementById('resourcecollector').innerHTML = resourcecollector;
+	};
 };	
 
 //Remove Custom # of Resource Collectors
 function remcustrescol(){
 	remcustrescoll = +document.getElementById("remcustrescoll").value;
-	resourcecollector = Math.floor(resourcecollector - remcustrescoll);
-	humans = Math.floor(humans + remcustrescoll);
-	document.getElementById('humans').innerHTML = humans;
-	document.getElementById('resourcecollector').innerHTML = resourcecollector;
+	if (remcustrescoll <= resourcecollector){
+		resourcecollector = Math.floor(resourcecollector - remcustrescoll);
+		humans = Math.floor(humans + remcustrescoll);
+		document.getElementById('humans').innerHTML = humans;
+		document.getElementById('resourcecollector').innerHTML = resourcecollector;
+	};
 };	
 
+//Add Half Scientist
+function addhalfscientist(number){
+	if (humans >= halfscientist && halfscientist <= (scientistlimit - scientist)){
+		scientist = scientist + halfscientist;
+		humans = humans - halfscientist;
+		document.getElementById('humans').innerHTML = humans;
+		document.getElementById('scientist').innerHTML = scientist;
+	};
+};
 
+//Add Max Scientist
+function addmaxscientist(number){
+	if (humans >= maxscientist && maxscientist <= (scientistlimit - scientist)){
+		scientist = scientist + maxscientist;
+		humans = humans - maxscientist;
+		document.getElementById('humans').innerHTML = humans;
+		document.getElementById('scientist').innerHTML = scientist;
+	
+	};	
+};
 
 /* function buyCursor(){ 
 	var cursorCost = Math.floor(10 * Math.pow(1.1,cursors)); //works out the cost of this cursor 
@@ -176,12 +219,29 @@ halfresourcecoll = Math.floor(humans/2);
 maxresourcecoll = humans;
 maxbuyhumans = Math.floor(resources/100);
 halfbuyhumans = Math.floor((resources/100)/2);
-totalpop = Math.floor(humans + resourcecollector);
+addcusthumancost = Math.floor(+document.getElementById("addcusthumannum").value * 100);
+halfscientist = Math.floor(humans/2)
+	if (halfscientist >= (scientistlimit/2)){
+		halfscientist = (scientistlimit/2);
+	};
+maxscientist = (humans || scientistlimit - scientist);
+	if (maxscientist >= (scientistlimit - scientist)){
+		maxscientist = scientistlimit;
+	} else { 
+			maxscientist = humans;
+	};
+
+totalpop = Math.floor(humans + resourcecollector + scientist);
+research = Math.floor(research + (scientist/2));
 document.getElementById('resources').innerHTML = resources;
 document.getElementById('maxbuyhumans').innerHTML = maxbuyhumans;
 document.getElementById('halfbuyhumans').innerHTML = halfbuyhumans;
 document.getElementById('halfresourcecoll').innerHTML = halfresourcecoll;
 document.getElementById('maxresourcecoll').innerHTML = maxresourcecoll;
 document.getElementById('totalpop').innerHTML = totalpop;
+document.getElementById('halfscientist').innerHTML = halfscientist;
+document.getElementById('maxscientist').innerHTML = maxscientist;
+document.getElementById('addcusthumancost').innerHTML = addcusthumancost;
+document.getElementById('research').innerHTML = research;
 }, 1000);
 
