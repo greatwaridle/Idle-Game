@@ -19,6 +19,9 @@ var research = 0;
 var halfscientist = 0;
 var maxscientist = 0;
 var scientistlimit = 10;
+var addcustscien = document.getElementById("addcustscien").value;
+var production = 0;
+var factworker = 0;
 
 
 //Add commas
@@ -143,7 +146,7 @@ function remcustrescol(){
 	};
 };	
 
-//Add Half Scientist
+//Add Half # of Scientists
 function addhalfscientist(number){
 	if (humans >= halfscientist && halfscientist <= (scientistlimit - scientist)){
 		scientist = scientist + halfscientist;
@@ -153,7 +156,7 @@ function addhalfscientist(number){
 	};
 };
 
-//Add Max Scientist
+//Add Max # of Scientists
 function addmaxscientist(number){
 	if (humans >= maxscientist && maxscientist <= (scientistlimit - scientist)){
 		scientist = scientist + maxscientist;
@@ -162,6 +165,40 @@ function addmaxscientist(number){
 		document.getElementById('scientist').innerHTML = scientist;
 	
 	};	
+};
+
+//Add Custom # of Scientists
+function addcustsci(number){
+	addcustscien = +document.getElementById("addcustscien").value;
+		if (addcustscien <= (scientistlimit - scientist)){
+			scientist = (scientist + addcustscien);
+			humans = (humans - addcusthuman);
+			document.getElementById('humans').innerHTML = humans;
+			document.getElementById('scientist').innerHTML = scientist;			
+		};
+		if (addcustscien >= (scientistlimit - scientist)){
+			humans =  (humans - (Math.floor(scientistlimit - scientist)));
+			scientist = (scientist + Math.floor(scientistlimit - scientist));
+			document.getElementById('humans').innerHTML = humans;
+			document.getElementById('scientist').innerHTML = scientist;
+		};
+};
+
+//Remove Custom # of Scientists
+function remcustsci(){
+	remcustscien = +document.getElementById("remcustscien").value;
+	if (remcustscien <= scientist){
+		scientist = Math.floor(scientist - remcustscien);
+		humans = Math.floor(humans + remcustscien);
+		document.getElementById('humans').innerHTML = humans;
+		document.getElementById('scientist').innerHTML = scientist;
+	};
+};
+
+//Add Scientists Max limit
+function addsciencemax(number){
+	scientistlimit = scientistlimit + number;
+	document.getElementById('scientistlimit').innerHTML = scientistlimit;
 };
 
 /* function buyCursor(){ 
@@ -222,16 +259,16 @@ halfbuyhumans = Math.floor((resources/100)/2);
 addcusthumancost = Math.floor(+document.getElementById("addcusthumannum").value * 100);
 halfscientist = Math.floor(humans/2)
 	if (halfscientist >= (scientistlimit/2)){
-		halfscientist = (scientistlimit/2);
+		halfscientist = Math.floor(maxscientist/2);
 	};
-maxscientist = (humans || scientistlimit - scientist);
-	if (maxscientist >= (scientistlimit - scientist)){
-		maxscientist = scientistlimit;
-	} else { 
-			maxscientist = humans;
+maxscientist = humans;
+	if (humans <= (scientistlimit - scientist)){
+		maxscientist = humans;
+	}; 
+	if (humans >= (scientistlimit - scientist)){
+		maxscientist = Math.floor(scientistlimit - scientist);
 	};
-
-totalpop = Math.floor(humans + resourcecollector + scientist);
+totalpop = Math.floor(humans + resourcecollector + scientist + factworker);
 research = Math.floor(research + (scientist/2));
 document.getElementById('resources').innerHTML = resources;
 document.getElementById('maxbuyhumans').innerHTML = maxbuyhumans;
