@@ -10,7 +10,7 @@
 		<h1 class="header2">
 		Humans: <span id="humans">0</span>
 		<br />
-		<button onclick="humansClick(1)">Add +1</button> 
+	<!-- 	<button onclick="humansClick(1)">Add +1</button>  -->
 		<button onclick="halfbuyhum()">Add Half</button><span id="halfbuyhumans">0</span>
 		<button onclick="maxbuyhum()">Add Max</button><span id="maxbuyhumans">0</span>
 		<br />
@@ -52,15 +52,15 @@
 		<br />
 		Resource Collectors: <span id="resourcecollector">0</span>
 		<br />
-		<button onclick="addresourcecol(1)">Add +1</button>
+		<!-- <button onclick="addresourcecol(1)">Add +1</button> -->
 		<button onclick="halfresourcecol()">Add Half</button><span id="halfresourcecoll">0</span>
 		<button onclick="maxresourcecol()">Add Max</button><span id="maxresourcecoll">0</span>
 		<br />
 		<button onclick="addcustrescol()">Add</button><input type="number" id="addcustrescoll" placeholder="Custom Number">
 		<br />
 		<br />
-		<button onclick="remresourcecol(1)">Subtract 1</button>
-		<button onclick="remcustrescol()">Subtract</button><input type="number" id="remcustrescoll" placeholder="Custom Number">
+	<!-- 	<button onclick="remresourcecol(1)">Remove 1</button> -->
+		<button onclick="remcustrescol()">Remove</button><input type="number" id="remcustrescoll" placeholder="Custom Number">
 		<br />
 		<br />
 		</p>
@@ -75,6 +75,17 @@
 		<button onclick="addhalfscientist()">Add Half</button><span id="halfscientist">0</span>
 		<button onclick="addmaxscientist()">Add Max</button><span id="maxscientist">0</span>
 		<br />
+		<button onclick="addcustsci()">Add</button><input type="number" id="addcustscien" placeholder="Custom Number">
+		<br />
+		<br />
+		<button onclick="remcustsci()">Remove</button><input type="number" id="remcustscien" placeholder="Custom Number">
+		<br />
+		<br />
+		<button onclick="addsciencemax(5)">+</button>
+		<br />
+		<div id="scienceprogressbar">
+			<div id="scibarpercent">10%</div>
+			</div>
 		</p>
 		</div>
 		
