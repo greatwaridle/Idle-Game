@@ -46,6 +46,22 @@ header {
 /* 	left: 810px;
 	top: -221px; */
 }
+#scienceprogressbar {
+	width: 90%;
+	background-color: #ddd;
+	
+}
+
+#scibarpercent {
+	width: 10%;
+	height: 30px;
+	background-color: #FFC133;
+	line-height: 30px;
+	text-align: center;
+	color: white;
+}
+	
+	
 </style> 
 </head>
 <body>
