@@ -22,6 +22,7 @@ var scientistlimit = 10;
 var addcustscien = document.getElementById("addcustscien").value;
 var production = 0;
 var factworker = 0;
+var framenum = 500;
 
 
 //Add commas
@@ -199,6 +200,28 @@ function remcustsci(){
 function addsciencemax(number){
 	scientistlimit = scientistlimit + number;
 	document.getElementById('scientistlimit').innerHTML = scientistlimit;
+};
+
+//Progress bar movement
+function move(){
+	var elem = document.getElementById('scibarpercent');
+	var width = 1;
+	var id = setInterval(frame, framenum);
+	function frame(){
+		if (width >= 100) {
+			clearInterval(id);
+		} else {
+			width++;
+			elem.style.width = width + '%';
+			elem.innerHTML = width * 1 + '%';
+		};
+	};
+};
+
+//Increase Reseach speed
+function addframenum(number){
+	framenum = framenum + number;
+	document.getElementById('framenum').innerHTML = framenum;
 };
 
 /* function buyCursor(){ 
