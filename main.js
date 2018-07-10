@@ -22,7 +22,9 @@ var scientistlimit = 10;
 var addcustscien = document.getElementById("addcustscien").value;
 var production = 0;
 var factworker = 0;
+var factworklimit = 10;
 var framenum = 500;
+var researchlabs = 0;
 
 
 //Add commas
@@ -196,10 +198,12 @@ function remcustsci(){
 	};
 };
 
-//Add Scientists Max limit
-function addsciencemax(number){
-	scientistlimit = scientistlimit + number;
+//Add Research Lab
+function addsciencelab(number){
+	researchlabs = researchlabs + 1;
+	scientistlimit = scientistlimit + 5;
 	document.getElementById('scientistlimit').innerHTML = scientistlimit;
+	document.getElementById('researchlabs').innerHTML = researchlabs;
 };
 
 //Progress bar movement
@@ -218,7 +222,7 @@ function move(){
 	};
 };
 
-//Increase Reseach speed
+//Increase Research speed
 function addframenum(number){
 	framenum = framenum + number;
 	document.getElementById('framenum').innerHTML = framenum;
@@ -293,6 +297,7 @@ maxscientist = humans;
 	};
 totalpop = Math.floor(humans + resourcecollector + scientist + factworker);
 research = Math.floor(research + (scientist/2));
+production = Math.floor(production + factworker);
 document.getElementById('resources').innerHTML = resources;
 document.getElementById('maxbuyhumans').innerHTML = maxbuyhumans;
 document.getElementById('halfbuyhumans').innerHTML = halfbuyhumans;
