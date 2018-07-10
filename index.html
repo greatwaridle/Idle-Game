@@ -81,7 +81,9 @@
 		<button onclick="remcustsci()">Remove</button><input type="number" id="remcustscien" placeholder="Custom Number">
 		<br />
 		<br />
-		<button onclick="addsciencemax(5)">+</button>
+		Research Labs: <span id="researchlabs">0</span>
+		<br />
+		<button onclick="addsciencelab(1)">Add Labs</button>
 		<br />
 		<br />
 		<button onclick="move()">Test</button><button onclick="addframenum(-20)">Faster</button><span id="framenum">500</span>
@@ -98,7 +100,7 @@
 		<br />	
 		<strong>Production: <span id="production">0</span></strong>
 		<br />
-		Factory Workers: <span id="factworker">0</span>
+		Factory Workers: <span id="factworker">0</span>/<span id="factworklimit">10</span>
 		<br />
 		<br />
 		</p>
