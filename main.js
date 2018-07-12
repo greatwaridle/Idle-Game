@@ -23,6 +23,10 @@ var addcustscien = document.getElementById("addcustscien").value;
 var production = 0;
 var factworker = 0;
 var factworklimit = 10;
+var factories = 0;
+var halffactwork = 0;
+var maxfactwork = 0;
+var addcustfactrwork = document.getElementById("addcustfactrwork").value;
 var framenum = 500;
 var researchlabs = 0;
 
@@ -149,6 +153,7 @@ function remcustrescol(){
 	};
 };	
 
+
 //Add Half # of Scientists
 function addhalfscientist(number){
 	if (humans >= halfscientist && halfscientist <= (scientistlimit - scientist)){
@@ -175,16 +180,16 @@ function addcustsci(number){
 	addcustscien = +document.getElementById("addcustscien").value;
 		if (addcustscien <= (scientistlimit - scientist)){
 			scientist = (scientist + addcustscien);
-			humans = (humans - addcusthuman);
+			humans = (humans - addcustscien);
 			document.getElementById('humans').innerHTML = humans;
 			document.getElementById('scientist').innerHTML = scientist;			
 		};
-		if (addcustscien >= (scientistlimit - scientist)){
+/* 		if (addcustscien >= (scientistlimit - scientist)){
 			humans =  (humans - (Math.floor(scientistlimit - scientist)));
 			scientist = (scientist + Math.floor(scientistlimit - scientist));
 			document.getElementById('humans').innerHTML = humans;
 			document.getElementById('scientist').innerHTML = scientist;
-		};
+		}; */
 };
 
 //Remove Custom # of Scientists
@@ -228,6 +233,35 @@ function addframenum(number){
 	document.getElementById('framenum').innerHTML = framenum;
 };
 
+//Add Factory
+function addfactory(number){
+	factworklimit = factworklimit + 5;
+	factories = factories + 1;
+	document.getElementById('factworklimit').innerHTML = factworklimit;
+	document.getElementById('factories').innerHTML = factories;
+};
+
+//Add Half # of Factory Workers
+function addhalffactwork(number){
+	if (humans >= halffactwork && halffactwork <= (factworklimit - factworker)){
+		factworker = factworker + halffactwork;
+		humans = humans - halffactwork;
+		document.getElementById('humans').innerHTML = humans;
+		document.getElementById('factworker').innerHTML = factworker;
+	};
+};
+
+//Add Max # of Factory Workers
+function addmaxfactwork(number){
+	if (humans >= maxfactwork && maxfactwork <= (factworklimit - factworker)){
+		factworker = factworker + maxfactwork;
+		humans = humans - maxfactwork;
+		document.getElementById('humans').innerHTML = humans;
+		document.getElementById('factworker').innerHTML = factworker;
+	
+	};	
+};
+
 /* function buyCursor(){ 
 	var cursorCost = Math.floor(10 * Math.pow(1.1,cursors)); //works out the cost of this cursor 
 	if(humans >= cursorCost){ //checks that the player can afford the cursor 
@@ -248,7 +282,7 @@ humansClick(nextGen);
 
 
 
-//Everything calulated every second
+//Everything calculated every second
 window.setInterval(function(){
 
 var humanspawnchance = (Math.random()* 1);
@@ -298,6 +332,17 @@ maxscientist = humans;
 totalpop = Math.floor(humans + resourcecollector + scientist + factworker);
 research = Math.floor(research + (scientist/2));
 production = Math.floor(production + factworker);
+maxfactwork = humans;
+	if (humans <= (factworklimit - factworker)){
+		maxfactwork = humans;
+	}; 
+	if (humans > (factworklimit - factworker)){
+		maxfactwork = Math.floor(factworklimit - factworker);
+	};
+halffactwork = Math.floor(humans/2)
+	if (halffactwork >= (factworklimit/2)){
+		halffactwork = Math.floor(maxfactwork/2);
+	};
 document.getElementById('resources').innerHTML = resources;
 document.getElementById('maxbuyhumans').innerHTML = maxbuyhumans;
 document.getElementById('halfbuyhumans').innerHTML = halfbuyhumans;
@@ -308,5 +353,8 @@ document.getElementById('halfscientist').innerHTML = halfscientist;
 document.getElementById('maxscientist').innerHTML = maxscientist;
 document.getElementById('addcusthumancost').innerHTML = addcusthumancost;
 document.getElementById('research').innerHTML = research;
+document.getElementById('halffactwork').innerHTML = halffactwork;
+document.getElementById('maxfactwork').innerHTML = maxfactwork;
+document.getElementById('production').innerHTML = production;
 }, 1000);
 
