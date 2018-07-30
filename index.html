@@ -1,0 +1,134 @@
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="interface(test).css" />
+
+	</head>
+	<body>
+		<header>
+		Total Population: <span id="totalpop">0</span>
+		</header>
+		<h1 class="header2">
+		Humans: <span id="humans">0</span>
+		<br />
+	<!-- 	<button onclick="humansClick(1)">Add +1</button>  -->
+		<button onclick="halfbuyhum()">Add Half</button><span id="halfbuyhumans">0</span>
+		<button onclick="maxbuyhum()">Add Max</button><span id="maxbuyhumans">0</span>
+		<br />
+		<button onclick="addcusthuman()">Add</button><input type="number" id="addcusthumannum" placeholder="Custom Number">Cost: <span id="addcusthumancost">0</span>
+		<br />
+		<br />
+		Descendants: <span id="Born">0</span>
+		<br />
+		Pregnancy Rate: <span id="pregorate">0</span>
+		<br />
+		<button onclick="spawnhumans(0.01)">Pregnancy Rate +</button><button onclick="minushumans(0.01)">Pregnancy Rate -</button>
+		<br />
+		<br />
+		<br />
+		[DEV]Random # Gen: <span id="humanspawnchance">0</span>
+		<br />
+		[DEV]True BR: <span id="birthrate">0</span>
+		<br />
+		[DEV]NextGen: <span id="nextGen">0</span>
+		</h1>
+		
+		
+		<br />
+		<br />
+		<br />
+		
+		
+		<!-- 	<button onclick="buyCursor()">Buy Cursor</button>
+		<br />
+		Cursors: <span id="cursors">0</span>
+		<br />
+		Cursor Cost: <span id="cursorCost">10</span>
+		<br /> -->
+		
+		
+		<div class="table1"><p>
+		<br />
+		<strong>Resources: <span id="resources">0</span></strong>
+		<br />
+		Resource Collectors: <span id="resourcecollector">0</span>
+		<br />
+		<!-- <button onclick="addresourcecol(1)">Add +1</button> -->
+		<button onclick="halfresourcecol()">Add Half</button><span id="halfresourcecoll">0</span>
+		<button onclick="maxresourcecol()">Add Max</button><span id="maxresourcecoll">0</span>
+		<br />
+		<button onclick="addcustrescol()">Add</button><input type="number" id="addcustrescoll" placeholder="Custom Number">
+		<br />
+		<br />
+	<!-- 	<button onclick="remresourcecol(1)">Remove 1</button> -->
+		<button onclick="remcustrescol()">Remove</button><input type="number" id="remcustrescoll" placeholder="Custom Number">
+		<br />
+		<br />
+		</p>
+		</div>
+		
+		<div class="table2"><p>
+		<br />
+		<strong>Research: <span id="research">0</span></strong>
+		<br />
+		Scientists: <span id="scientist">0</span>/<span id="scientistlimit">10</span>
+		<br />
+		<button onclick="addhalfscientist()">Add Half</button><span id="halfscientist">0</span>
+		<button onclick="addmaxscientist()">Add Max</button><span id="maxscientist">0</span>
+		<br />
+		<button onclick="addcustsci()">Add</button><input type="number" id="addcustscien" placeholder="Custom Number">
+		<br />
+		<br />
+		<button onclick="remcustsci()">Remove</button><input type="number" id="remcustscien" placeholder="Custom Number">
+		<br />
+		<br />
+		Research Labs: <span id="researchlabs">0</span>
+		<br />
+		<button onclick="addsciencelab(1)">Add Labs</button>
+		<br />
+		<br />
+		<button onclick="move()">Test</button><button onclick="addframenum(-20)">Faster</button><span id="framenum">500</span>
+		<br />
+		<div id="scienceprogressbar">
+			<div id="scibarpercent">0%</div>
+			</div>
+			</p>
+			<br />
+			<br />
+		</div>
+		
+		<div class="table3"><p>
+		<br />	
+		<strong>Production: <span id="production">0</span></strong>
+		<br />
+		Factory Workers: <span id="factworker">0</span>/<span id="factworklimit">10</span>
+		<br />
+		<button onclick="addhalffactwork()">Add Half</button><span id="halffactwork">0</span>
+		<button onclick="addmaxfactwork()">Add Max</button><span id="maxfactwork">0</span>
+		<br />
+		<button onclick="addcustfactwork()">Add</button><input type="number" id="addcustfactrwork" placeholder="Custom Number">
+		<br />
+		<br />
+		<button onclick="remcustfactwork()">Remove</button><input type="number" id="remcustfactrwork" placeholder="Custom Number">
+		<br />
+		Factories: <span id="factories">0</span>
+		<br />
+		<button onclick="addfactory(1)">Add Factory</button>
+		<br />
+		<br />
+		</p>
+		</div>
+
+	
+
+		
+		
+		
+		
+		
+		
+		<script type="text/javascript" src="main(test).js"></script>
+
+		
+	</body>
+</html>
+

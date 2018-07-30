@@ -1,0 +1,74 @@
+<html>
+<head>
+ <style>
+  * {
+    box-sizing: border-box;
+}
+
+body {
+    /*font-family: Arial, Helvetica, sans-serif;*/
+}
+
+/* Style the header */
+header {
+    background-color: #EAECEE;
+    padding: 30px;
+    text-align: center;
+    font-size: 35px;
+    color: black;
+}
+/* Header 2 */
+.header2 {
+	text-align: center;
+	font-weight:normal;
+	font-size: 16px;
+}
+.table1 {
+	display: table;
+	width: 33%;
+	border: 1px solid black;
+	position: relative;
+}
+.table2 {
+	display: table;
+	width: 33%;
+	border: 1px solid black;
+	position: relative;
+/* 	left: 405px;
+	top: -155px; */
+	
+}
+.table3	{
+	display: table;
+	width: 33%;
+	border: 1px solid black;
+	position: relative;
+/* 	left: 810px;
+	top: -221px; */
+}
+#scienceprogressbar {
+	width: 90%;
+	background-color: #ddd;
+	border: solid 1px;
+	position: absolute;
+	left: 17px;
+	bottom: 15px;
+	
+}
+
+#scibarpercent {
+	width: 0%;
+	height: 30px;
+	background-color: #00EF7B;
+	line-height: 30px;
+	text-align: center;
+	color: black;
+}
+	
+	
+</style> 
+</head>
+<body>
+
+</body>
+</html>
