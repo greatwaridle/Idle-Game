@@ -1,6 +1,8 @@
 <html>
 	<head>
 		<link rel="stylesheet" type="text/css" href="interface(test).css" />
+		<script type ="text/javascript" src="break_infinity.js"></script>
+		<script type ="text/javascript" src="researchprojects.js"></script>
 
 	</head>
 	<body>
@@ -8,16 +10,16 @@
 		Total Population: <span id="totalpop">0</span>
 		</header>
 		<h1 class="header2">
-		Humans: <span id="humans">0</span>
+		Humans: <span id="humansd">0</span>
 		<br />
 	<!-- 	<button onclick="humansClick(1)">Add +1</button>  -->
-		<button onclick="halfbuyhum()">Add Half</button><span id="halfbuyhumans">0</span>
-		<button onclick="maxbuyhum()">Add Max</button><span id="maxbuyhumans">0</span>
+		<button onclick="halfbuyhum()">Add Half</button><span id="halfbuyhumansd">0</span>
+		<button onclick="maxbuyhum()">Add Max</button><span id="maxbuyhumansd">0</span>
 		<br />
 		<button onclick="addcusthuman()">Add</button><input type="number" id="addcusthumannum" placeholder="Custom Number">Cost: <span id="addcusthumancost">0</span>
 		<br />
 		<br />
-		Descendants: <span id="Born">0</span>
+		Descendants: <span id="Bornd">0</span>
 		<br />
 		Pregnancy Rate: <span id="pregorate">0</span>
 		<br />
@@ -29,7 +31,7 @@
 		<br />
 		[DEV]True BR: <span id="birthrate">0</span>
 		<br />
-		[DEV]NextGen: <span id="nextGen">0</span>
+		[DEV]NextGen: <span id="nextGend">0</span>
 		</h1>
 		
 		
@@ -46,15 +48,16 @@
 		<br /> -->
 		
 		
-		<div class="table1"><p>
+		
+		<div id="leftColumn">
 		<br />
-		<strong>Resources: <span id="resources">0</span></strong>
+		<strong>Resources: <span id="resourcesd">0</span></strong>
 		<br />
-		Resource Collectors: <span id="resourcecollector">0</span>
+		Resource Collectors: <span id="resourcecollectord">0</span>
 		<br />
 		<!-- <button onclick="addresourcecol(1)">Add +1</button> -->
-		<button onclick="halfresourcecol()">Add Half</button><span id="halfresourcecoll">0</span>
-		<button onclick="maxresourcecol()">Add Max</button><span id="maxresourcecoll">0</span>
+		<button onclick="halfresourcecol()">Add Half</button><span id="halfresourcecolld">0</span>
+		<button onclick="maxresourcecol()">Add Max</button><span id="maxresourcecolld">0</span>
 		<br />
 		<button onclick="addcustrescol()">Add</button><input type="number" id="addcustrescoll" placeholder="Custom Number">
 		<br />
@@ -63,19 +66,18 @@
 		<button onclick="remcustrescol()">Remove</button><input type="number" id="remcustrescoll" placeholder="Custom Number">
 		<br />
 		<br />
-		</p>
 		</div>
 		
-		<div class="table2"><p>
+		<div id="middleColumn">
 		<br />
-		<strong>Research: <span id="research">0</span></strong>
+		<strong>Research: <span id="researchd">0</span></strong>
 		<br />
 		Scientists: <span id="scientist">0</span>/<span id="scientistlimit">10</span>
 		<br />
 		<button onclick="addhalfscientist()">Add Half</button><span id="halfscientist">0</span>
 		<button onclick="addmaxscientist()">Add Max</button><span id="maxscientist">0</span>
 		<br />
-		<button onclick="addcustsci()">Add</button><input type="number" id="addcustscien" placeholder="Custom Number">
+		<button onclick="addcustsci()">Add</button><input type="number" id="addcustscien" placeholder="Custom Number"><span id="customnumber">0</span>
 		<br />
 		<br />
 		<button onclick="remcustsci()">Remove</button><input type="number" id="remcustscien" placeholder="Custom Number">
@@ -88,15 +90,21 @@
 		<br />
 		<button onclick="move()">Test</button><button onclick="addframenum(-20)">Faster</button><span id="framenum">500</span>
 		<br />
+		<br />
 		<div id="scienceprogressbar">
 			<div id="scibarpercent">0%</div>
 			</div>
-			</p>
-			<br />
-			<br />
+		<br />
+		<br />
+		Research Projects:<button onclick="displayRSProjects()">Spawn</button>
+			<div id="researchprojects">		
+			</div>
+		
+		
+		
 		</div>
 		
-		<div class="table3"><p>
+		<div id="rightColumn">
 		<br />	
 		<strong>Production: <span id="production">0</span></strong>
 		<br />
@@ -110,12 +118,12 @@
 		<br />
 		<button onclick="remcustfactwork()">Remove</button><input type="number" id="remcustfactrwork" placeholder="Custom Number">
 		<br />
+		<br />
 		Factories: <span id="factories">0</span>
 		<br />
 		<button onclick="addfactory(1)">Add Factory</button>
 		<br />
 		<br />
-		</p>
 		</div>
 
 	
