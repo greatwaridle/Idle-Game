@@ -23,37 +23,38 @@ header {
 	font-weight:normal;
 	font-size: 16px;
 }
-.table1 {
-	display: table;
-	width: 33%;
-	border: 1px solid black;
-	position: relative;
+#leftColumn {
+  float: left ;
+  width: 32%;
+  border: 1px solid black;
+  margin-left: 4px;
+  margin-right: 4px;
+  padding: 3px;
+  
 }
-.table2 {
-	display: table;
-	width: 33%;
-	border: 1px solid black;
-	position: relative;
-/* 	left: 405px;
-	top: -155px; */
-	
+#middleColumn {
+  float: left;
+  width: 32%;
+ /* margin-left: 10px;*/
+  border: 1px solid black;
+  margin-right: 4px;
+  padding: 3px;
+  
 }
-.table3	{
-	display: table;
-	width: 33%;
-	border: 1px solid black;
-	position: relative;
-/* 	left: 810px;
-	top: -221px; */
+#rightColumn {
+  float: left;
+  width: 32%;
+  /*margin-left: 10px; */
+  border: 1px solid black; 
+  padding: 3px;  
+  
 }
 #scienceprogressbar {
 	width: 90%;
 	background-color: #ddd;
 	border: solid 1px;
-	position: absolute;
-	left: 17px;
-	bottom: 15px;
-	
+	margin-left: auto;
+	margin-right: auto;
 }
 
 #scibarpercent {
@@ -64,8 +65,53 @@ header {
 	text-align: center;
 	color: black;
 }
+/* Research project table */
+#researchprojects {
+	width: 90%;
+	height: 64px;
+	border: 1px solid black;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #ddd;
 	
 	
+}
+
+/* Research Button */
+.projectButton {
+    border-radius: 0px;
+    display: block;
+    height: 60px;
+    width: 100%;
+    /*background: #c8c8c8;*/
+	background: white;
+    border: 1px solid rgba(0, 0, 0, 1);
+    outline: none;
+    margin-bottom: 6px;
+}
+
+.projectButton:hover {
+    display: block;
+    height: 60px;
+    width: 100%;
+    background: #c8c8c8;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+.projectButton:active {
+    display: block;
+    height: 60px;
+    width: 100%;
+    background: #d1d1d1;
+    border: 1px solid rgba(0, 0, 0, 1);
+    
+}
+
+.projectButton:disabled {
+    border: none;
+}
+
+
 </style> 
 </head>
 <body>
