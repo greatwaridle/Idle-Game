@@ -331,14 +331,20 @@ humansClick(nextGen);
 }; */
 
 
-//Research Projects
+//Research Projects (https://stackoverflow.com/questions/20439916/dynamically-increasing-height-of-div-in-javascript)
 function displayRSProjects(project){
 	var rsdisplay = document.createElement("button");
 	document.getElementById("researchprojects").appendChild(rsdisplay);
 	rsdisplay.setAttribute("class", "projectButton");
     rsdisplay.setAttribute("id", project.id);
-		researchprojectsElement.appendChild(project.element, researchprojectsElement.firstChild);
-}
+	};
+function addheight(){
+			var el = document.getElementById("researchprojects");
+			var height = el.offsetHeight;
+			var newHeight = height + 60;
+			el.style.height = newHeight + 'px';
+};
+
 
 //Everything calulated every second
 window.setInterval(function(){
