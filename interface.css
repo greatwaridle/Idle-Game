@@ -4,7 +4,6 @@
   * {
     box-sizing: border-box;
 }
-
 body {
     /*font-family: Arial, Helvetica, sans-serif;*/
 }
@@ -68,13 +67,11 @@ header {
 /* Research project table */
 #researchprojects {
 	width: 90%;
-	height: 64px;
+	height: 0px;
 	border: 1px solid black;
 	margin-left: auto;
 	margin-right: auto;
-	background-color: #ddd;
-	
-	
+	background-color: #ddd;	
 }
 
 /* Research Button */
@@ -87,7 +84,7 @@ header {
 	background: white;
     border: 1px solid rgba(0, 0, 0, 1);
     outline: none;
-    margin-bottom: 6px;
+    /*margin-bottom: 6px;*/
 }
 
 .projectButton:hover {
