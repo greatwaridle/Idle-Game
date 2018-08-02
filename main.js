@@ -1,6 +1,7 @@
 var humans = 0;
 var humansd = addCommas(humans);
 var birthrate = 0.01;
+var birthchance = 0.01;
 var partialHumanSpawn = 0;
 var nextGen = Math.floor((humans/2) * birthrate);
 var nexGend = addCommas(nextGen);
@@ -23,7 +24,7 @@ var halfresourcecolld = addCommas(halfresourcecoll);
 var addcustrescoll = document.getElementById("addcustrescoll").value;
 var totalpop = 0;
 var scientist = 0;
-var research = 0;
+var research = 1000;
 var researchd = addCommas(research);
 var halfscientist = 0;
 var maxscientist = 0;
@@ -336,7 +337,27 @@ function displayRSProjects(project){
 	var rsdisplay = document.createElement("button");
 	document.getElementById("researchprojects").appendChild(rsdisplay);
 	rsdisplay.setAttribute("class", "projectButton");
-    rsdisplay.setAttribute("id", project.id);
+    rsdisplay.setAttribute("id", "project.id");
+	
+ 	rsdisplay.onclick = function(){project1.effect()};
+    //projectListTopElement.appendChild(project.element, projectListTopElement.firstChild);
+    var span = document.createElement("span");
+    span.style.fontWeight = "bold";
+	rsdisplay.appendChild(span);
+    
+    var title = document.createTextNode(project1.title);
+    span.appendChild(title);    
+    
+    var cost = document.createTextNode(project1.priceTag);
+	rsdisplay.appendChild(cost);
+    
+    var div = document.createElement("div");
+	rsdisplay.appendChild(div);
+    
+    var description = document.createTextNode(project1.description);
+    rsdisplay.appendChild(description);
+    
+    //blink(project1.element);
 	};
 function addheight(){
 			var el = document.getElementById("researchprojects");
@@ -344,6 +365,14 @@ function addheight(){
 			var newHeight = height + 60;
 			el.style.height = newHeight + 'px';
 };
+
+//Blink
+function blink(element){
+	function toggleVisibility(element){
+		element.style.visibility = "hidden";
+	}
+}
+
 
 
 //Everything calulated every second
@@ -358,7 +387,7 @@ nextGen = Math.floor((humans/2) * birthrate);
 	if (nextGen <= 1 && humans >=2){
 		nextGen = 1
 	};
-	if (humanspawnchance <= birthrate && resources >= (nextGen * 100)){
+	if (humanspawnchance <= birthchance && resources >= (nextGen * 100)){
 			humans = humans + nextGen;
 			Born = Born + nextGen;
 			resources = resources - (nextGen * 100);
@@ -378,8 +407,10 @@ nextGen = Math.floor((humans/2) * birthrate);
 document.getElementById('pregorate').innerHTML = pregorate;
 document.getElementById('humanspawnchance').innerHTML = humanspawnchance;
 document.getElementById('birthrate').innerHTML = birthrate;
+document.getElementById('pregochance').innerHTML = pregochance;
 document.getElementById('nextGend').innerHTML = nextGend;
 pregorate = ((birthrate*100)/100).toLocaleString(undefined,{style: 'percent', minimumFractionDigits:2});
+pregochance = ((birthchance*100)/100).toLocaleString(undefined,{style: 'percent', minimumFractionDigits:2});
 halfresourcecoll = Math.floor(humans/2);
 maxresourcecoll = humans;
 maxresourcecolld = addCommas(maxresourcecoll);
