@@ -20,6 +20,12 @@ var project1 = {
 			research = research - 1000;
 			resources = resources - 10000;
 			birthrate = birthrate + .0025;
+			var elem = document.getElementById('scibarpercent');
+			var width = document.getElementById('scibarpercent').getAttribute("width");
+			elem.style.width = 0;
+			elem.innerHTML = "0%";
+			document.getElementById('scibarpercent').appendChild("width");
+			document.getElementById('scibarpercent').innerHTML = scibarpercent;
 			//project1.element.parentNode.removeChild(project1.element);
 			//var index = activeProjects.indexOf(project1);
 			//activeProjects.splice(index, 1);
